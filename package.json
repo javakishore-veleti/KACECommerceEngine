@@ -1,0 +1,57 @@
+{
+  "name": "kace-commerce-engine",
+  "version": "0.0.1",
+  "private": true,
+  "description": "KACECommerceEngine — TypeScript middleware for the KACE suite. Multi-engine rule facade, rewards, Shopify BFF, hand-rolled SessionStorage.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0 <21"
+  },
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "lint:fix": "eslint \"src/**/*.ts\" \"tests/**/*.ts\" --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --dir tests/unit",
+    "test:integration": "vitest run --dir tests/integration",
+    "test:coverage": "vitest run --coverage",
+    "migrate:up": "node-pg-migrate up",
+    "migrate:down": "node-pg-migrate down",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fastify/awilix": "^5.0.0",
+    "@shopify/shopify-api": "^11.3.0",
+    "@shopify/shopify-app-session-storage": "^3.0.0",
+    "awilix": "^11.0.0",
+    "fastify": "^4.28.0",
+    "ioredis": "^5.4.0",
+    "lru-cache": "^11.0.0",
+    "pg": "^8.12.0",
+    "pino": "^9.3.0",
+    "pino-pretty": "^11.2.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/pg": "^8.11.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "node-pg-migrate": "^7.6.0",
+    "prettier": "^3.3.0",
+    "testcontainers": "^10.10.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}
