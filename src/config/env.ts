@@ -34,6 +34,14 @@ const envSchema = z.object({
   ENCRYPTION_KEY_V1: z.string().min(32),
   ENCRYPTION_KEY_V2: z.string().min(32).optional(),
   ENCRYPTION_KEY_V3: z.string().min(32).optional(),
+
+  // Shopify — OAuth install for promptkart-dev (single-tenant v0)
+  SHOPIFY_API_KEY: z.string().min(1),
+  SHOPIFY_API_SECRET: z.string().min(1),
+  SHOPIFY_APP_URL: z.string().url(),
+  SHOPIFY_SCOPES: z.string().min(1),
+  SHOPIFY_API_VERSION: z.string().default('2026-01'),
+  SHOPIFY_DEFAULT_TENANT: z.string().default('PROMPTKART'),
 });
 
 export type Env = z.infer<typeof envSchema>;
